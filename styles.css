@@ -1,0 +1,276 @@
+:root {
+    --primary-color: #4a90e2;
+    --star-color: #f5a623;
+    --trash-color: #d0021b;
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#app {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 10px 5px;
+    border: none;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nav-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#auto-scroll-toggle {
+    padding: 8px 20px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#auto-scroll-toggle.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.order-toggle {
+    display: flex;
+    background: #e0e0e0;
+    border-radius: 20px;
+    padding: 2px;
+}
+
+.toggle-btn {
+    border: none;
+    background: transparent;
+    padding: 5px 15px;
+    border-radius: 18px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.toggle-btn.active {
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#flashcard-container {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    max-height: 50vh;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s;
+    text-align: center;
+    padding: 20px;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.hanja {
+    font-size: 10rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.meaning {
+    font-size: 2rem;
+    color: #666;
+}
+
+
+.card-actions {
+    display: flex;
+    gap: 40px;
+}
+
+.action-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.action-btn:active {
+    transform: scale(0.9);
+}
+
+#btn-star {
+    color: var(--star-color);
+}
+
+#btn-trash {
+    color: var(--trash-color);
+}
+
+.full-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    height: 85%;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.table-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+}
+
+footer {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 400px) {
+    .hanja {
+        font-size: 8rem;
+    }
+    .meaning {
+        font-size: 1.5rem;
+    }
+    .nav-btn {
+        font-size: 0.8rem;
+    }
+}

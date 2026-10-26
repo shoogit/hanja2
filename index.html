@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중학교 한자 플래시카드</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <nav>
+                <button id="view-main" class="nav-btn active">메인 데크</button>
+                <button id="view-star" class="nav-btn">스타 보관함</button>
+                <button id="view-trash" class="nav-btn">휴지통</button>
+            </nav>
+            <div class="controls">
+                <button id="auto-scroll-toggle">자동스크롤 시작</button>
+                <div class="order-toggle">
+                    <button id="order-random" class="toggle-btn active">랜덤</button>
+                    <button id="order-sequential" class="toggle-btn">표순서</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="flashcard-container">
+                <div id="flashcard" class="card">
+                    <div id="hanja" class="hanja"></div>
+                    <div id="meaning" class="meaning"></div>
+                </div>
+            </div>
+            <div class="card-actions">
+                <button id="btn-star" class="action-btn" title="스타">⭐</button>
+                <button id="btn-trash" class="action-btn" title="휴지통">🗑️</button>
+            </div>
+            <button id="btn-show-table" class="full-btn">표로 보기</button>
+        </main>
+
+        <footer id="footer">
+            <span id="deck-info">카드를 불러오는 중...</span>
+        </footer>
+    </div>
+
+    <div id="table-modal" class="modal">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">&times;</button>
+            <h2>한자 목록</h2>
+            <div class="table-wrapper">
+                <table id="hanja-table">
+                    <thead>
+                        <tr>
+                            <th>한자</th>
+                            <th>한글 뜻/음</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
